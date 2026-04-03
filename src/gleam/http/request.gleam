@@ -5,6 +5,7 @@ import gleam/option.{type Option}
 import gleam/result
 import gleam/string
 import gleam/uri.{type Uri, Uri}
+import gluri
 
 /// A HTTP request.
 ///
@@ -194,7 +195,7 @@ pub fn new() -> Request(String) {
 ///
 pub fn to(url: String) -> Result(Request(String), Nil) {
   url
-  |> uri.parse
+  |> gluri.parse
   |> result.try(from_uri)
 }
 
